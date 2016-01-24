@@ -3,8 +3,7 @@ Magpie IoT Data Access Layer
 
 ###Requirements###
 * JRE - 1.8
-=================================
-* Cassandra Database Service - Download datastax-community-64bit_2.2.4.msi (Windows) [here](https://downloads.datastax.com/community/)
+* Cassandra Database Service - Download datastax-community-64bit_2.2.4.msi (Windows)(https://downloads.datastax.com/community/)
 * IntelliJ IDE
 
 ###Steps to install###
