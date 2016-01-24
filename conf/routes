@@ -1,0 +1,15 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+# Gets all the devices
+GET     /getDeviceData              controllers.Application.getDeviceData()
+# Gets device data by ID
+GET     /getDeviceData/:id          controllers.Application.getDeviceDataById(id:String)
+# Creates a new device data record
+POST    /putDeviceData              controllers.Application.putDeviceData()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

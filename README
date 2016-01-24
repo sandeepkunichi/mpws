@@ -1,0 +1,13 @@
+Magpie IoT Data Access Layer
+=================================
+
+###Requirements###
+* JRE - 1.8
+* Cassandra Database Service - Download datastax-community-64bit_2.2.4.msi (Windows) [here](https://downloads.datastax.com/community/)
+* IntelliJ IDE
+
+###Steps to install###
+
+* Import project into IntelliJ as SBT project
+* Install Cassandra database using the MSI
+* cd to the project directory and run activator ~run to run Play project
