@@ -73,7 +73,7 @@ public class Cassandra {
         ArrayNode allDevices = JsonNodeFactory.instance.arrayNode();
         ObjectMapper jsonMapper = new ObjectMapper();
         try{
-            List<Row> rows = session.execute("SELECT JSON * FROM DeviceData WHERE ID = "+id).all();
+            List<Row> rows = session.execute("SELECT JSON * FROM DeviceData WHERE Id = "+id).all();
             for (Row row : rows){
                 allDevices.add(jsonMapper.readTree(row.getString(0)));
             }
@@ -81,6 +81,23 @@ public class Cassandra {
             response.put("records", allDevices);
         }catch (Exception ex){
             response.put("error", ex.getMessage());
+        }
+        return response;
+    }
+
+    public JsonNode getDeviceDataByQuery(String query) {
+        ObjectNode response = JsonNodeFactory.instance.objectNode();
+        ArrayNode allDevices = JsonNodeFactory.instance.arrayNode();
+        ObjectMapper jsonMapper = new ObjectMapper();
+        try {
+            List<Row> rows = session.execute(query).all();
+            for (Row row : rows) {
+                allDevices.add(jsonMapper.readTree(row.getString(0)));
+            }
+            response.put("totalSize", rows.size());
+            response.put("records", allDevices);
+        } catch (Exception ex) {
+            response.put("error", "Usage: SELECT JSON [Column Names] FROM [TableName]");
         }
         return response;
     }

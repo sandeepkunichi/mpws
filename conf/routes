@@ -5,9 +5,13 @@
 # Home page
 GET     /                           controllers.Application.index()
 # Gets all the devices
-GET     /getDeviceData              controllers.Application.getDeviceData()
+GET     /getDeviceData/all          controllers.Application.getDeviceData()
+# Gets device data using a query
+GET     /queryDeviceData            controllers.Application.getDeviceDataByQuery()
 # Gets device data by ID
 GET     /getDeviceData/:id          controllers.Application.getDeviceDataById(id:String)
+
+
 # Creates a new device data record
 POST    /putDeviceData              controllers.Application.putDeviceData()
 
